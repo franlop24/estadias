@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Estadías</h1>
+<h2>Solicitud Carta de Presentación - {{ enrollment }}</h2>
+<div class="link">
+<a href="{% url 'home:home' %}">Regresar</a>
+</div>
+{% if messages %}
+{% for msg in messages %}
+<h3 class="alert">{{ msg }}</h3>
+{% endfor %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Datos del estudiante</legend>
+        <div>
+        {{ form.name_student.label }}
+        {{ form.name_student }}</div>
+        <div>
+        {{ form.lastname_student.label }}
+        {{ form.lastname_student }}</div>
+        <div>
+        {{ form.email_student.label }}
+        {{ form.email_student }}</div>
+        <div>
+        {{ form.address.label }}
+        {{ form.address }}</div>
+        <div>
+        {{ form.phone.label }}
+        {{ form.phone }}</div>
+        <div>
+        {{ form.nss.label }}
+        {{ form.nss }}</div>
+        <div>
+        {{ form.career.label }}
+        {{ form.career }}</div>
+        <div>
+        {{ form.group.label }}
+        {{ form.group }}</div>
+        <div>
+        {{ form.period.label }}
+        {{ form.period }}</div>
+        <div>
+        {{ form.payed.label }}
+        {{ form.payed }}</div>
+    </fieldset><br>
+    <fieldset>
+        <legend>Asesor Interno</legend>
+        <div>
+            {{ form.internal_advisor.label }}
+            {{ form.internal_advisor }}
+        </div>
+    </fieldset><br>
+    <fieldset>
+        <legend>Dirigido a</legend>
+        <div>
+        {{ form.title_contact.label }}
+        {{ form.title_contact }}
+        </div>
+        <div>
+        {{ form.full_name_contact.label }}
+        {{ form.full_name_contact }}
+        </div>
+        <div>
+        {{ form.position_contact.label }}
+        {{ form.position_contact }}
+        </div>
+        <div>
+        {{ form.enterprice.label }}
+        {{ form.enterprice }}
+        </div>
+        <div style="display: block;">
+        {{ form.in_catalog.label }}
+        {{ form.in_catalog }}
+        </div>
+    </fieldset><br>
+    <fieldset>
+        <legend>Asesor Externo</legend>
+        <div>
+        {{ form.title_external.label }}
+        {{ form.title_external }}</div>
+        <div>
+        {{ form.full_name_external.label }}
+        {{ form.full_name_external }}</div>
+        <div>
+        {{ form.position_external.label }}
+        {{ form.position_external }}</div>
+    </fieldset><br>
+    <fieldset>
+        <legend>Asignación de Proyecto</legend>
+        <div>
+            {{ form.name_project.label }}
+            {{ form.name_project }}
+        </div>
+        <div>
+        {{ form.start_date.label }}
+        {{ form.start_date }}
+        </div>
+        <div>
+            {{ form.end_date.label }}
+            {{ form.end_date }}
+        </div>
+        <div>
+            {{ form.period_stay.label }}
+            {{ form.period_stay }}
+        </div>
+        <div>
+            {{ form.register_date.label }}
+            {{ form.register_date }}
+        </div>
+        <div>
+            {{ form.modality.label }}
+            {{ form.modality }}
+        </div>
+        <div>
+            {{ form.line.label }}
+            {{ form.line }}
+        </div>
+    </fieldset>
+    <div class="bottom">
+        <input type="submit" value="Guardar">
+    </div>
+</form>
+{% endblock %}

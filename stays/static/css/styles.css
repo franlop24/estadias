@@ -1,0 +1,112 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eeeeee;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 70%;
+    min-width: 800px;
+    background-color: white;
+    box-shadow: 0 0 10px #ababab;
+    padding: 10px 30px;
+    overflow: scroll;
+}
+
+.container h1, .container h2 {
+    text-align: center;
+}
+
+.container fieldset {
+    border-radius: 10px;
+    padding: 20px 30px 20px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+fieldset div {
+    width: 45%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type='text'], input[type='email'], textarea, select, input[type='date'] {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid grey;
+    margin-top: 5px;
+}
+
+input[type='submit'] {
+    margin: 20px auto;
+    width: 300px;
+    height: 40px;
+    border: none;
+    color: white;
+    background: green;
+    border-radius: 10px;
+}
+
+.bottom {
+    text-align: center;
+}
+
+.alert {
+    text-align: center;
+    background: rgba(0, 255, 0, .4);
+    border: 1px solid green;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.home {
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+/* Estilos */
+table{ 
+			width: 100%;
+			background:  white;
+			line-height: 1.3em;
+			display: table;
+			/* Fondo intercalado */
+			tr:nth-of-type(odd) { 
+				background:(#BBB + 50); 
+			}
+			td, th { 
+				padding: 6px; 
+				border: 1px solid (#BBB + 20); 
+				text-align: left; 
+			}
+			th { 
+				background:#333; 
+				color: white; 
+				font-weight: bold; 
+			}
+		}
+
+.link {
+    text-align: center;
+    font-weight: bold;
+}
+
+.table {
+    width: 90%;
+    margin: 20px auto;
+    overflow: scroll;
+    padding: 10px;
+    border: 1px solid #ececec;
+}

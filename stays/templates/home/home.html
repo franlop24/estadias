@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome Home</h1>
+<form method="post" class="home">
+    {% csrf_token %}
+    <div>
+        {{ form }}
+    </div>
+    <div class="bottom">
+        <input type="submit" value="Capturar">
+    </div>
+</form>
+
+<hr>
+<div class="link">
+<a href="{% url 'presentation:list' %}">Solicitudes</a>
+</div>
+{% endblock content %}

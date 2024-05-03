@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Solicitudes de Cartas de Presentación</h1>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Filtrar por:</legend>
+            {{ form }}
+            <div>
+                <input type="submit" value="Filtrar">
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="table">
+    <table>
+        <thead>
+            <th>Matrícula</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Carrera</th>
+            <th>Cuatrimestre</th>
+            <th>Grupo</th>
+            <th>NSS</th>
+            <th>email</th>
+            <th>Pagado hasta</th>
+            <th>Asesor Interno</th>
+            <th>Cargo Asesor Interno</th>
+            <th>Nombre</th>
+            <th>Cargo</th>
+            <th>Empresa</th>
+            <th>Empresa en Catálogo</th>
+            <th>Nombre Asesor Externo</th>
+            <th>Cargo Asesor Externo</th>
+            <th>Nombre de Proyecto</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Periodo Estadía</th>
+            <th>Año estadía</th>
+            <th>Fecha de captura</th>
+            <th>Modalidad</th>
+            <th>Giro</th>
+        </thead>
+        <tbody>
+{% for p in presentations %}
+<tr>
+    <td><a href="{% url 'presentation:home' p.student.enrollment %}">{{ p.student.enrollment }}</a></td>
+    <td>{{ p.student.full_name }}</td>
+    <td>{{ p.address }}</td>
+    <td>{{ p.phone }}</td>
+    <td>{{ p.career }}</td>
+    <td>{{ p.period }}</td>
+    <td>{{ p.group }}</td>
+    <td>{{ p.nss }}</td>
+    <td>{{ p.student.user.email }}</td>
+    <td>{{ p.payed }}</td>
+    <td>{{ p.internal_advisor | upper }}</td>
+    <td>{{ p.internal_advisor.position }}</td>
+    <td>{{p.title_contact}} {{p.full_name_contact}}</td>
+    <td>{{p.position_contact}}</td>
+    <td>{{p.enterprice}}</td>
+    <td>{{p.in_catalog}}</td>
+    <td>{{p.title_external}} {{p.full_name_external}}</td>
+    <td>{{p.position_external}}</td>
+    <td>{{p.name_project}}</td>
+    <td>{{p.start_date | date:"d/m/y" }}</td>
+    <td>{{p.end_date | date:"d/m/y" }}</td>
+    <td>2024</td>
+    <td>{{p.period_stay}}</td>
+    <td>{{p.register_date | date:"d/m/y" }} </td>
+    <td>{{p.modality}}</td>
+    <td>{{p.line}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
